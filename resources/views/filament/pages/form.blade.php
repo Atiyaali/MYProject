@@ -1,7 +1,7 @@
 <x-filament::page>
     <div class="space-y-6">
 
-        <h2 class="text-2xl font-bold">Form Builder</h2>
+        {{-- <h2 class="text-2xl font-bold">Form Builder</h2> --}}
 
         <form wire:submit.prevent="submit">
             {{ $this->form }}
