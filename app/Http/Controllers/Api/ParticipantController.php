@@ -38,9 +38,13 @@ class ParticipantController extends Controller
         if (!file_exists(public_path() . "/qr/{$participant->auth_key}.jpg")) {
             storeImageFromUrl("https://api.qrserver.com/v1/create-qr-code/?data={$participant->auth_key}&size=300x300&ecc=H&qzone=2&bgcolor=fff&color=000000&margin=15", "/qr/{$participant->auth_key}.jpg");
         }
+        $this->confirmationedm($participant);
         return response()->json([
             'message' => 'Participant stored successfully!',
             'data'    => $participant,
         ], 201);
+    }
+    function confirmationedm($participant){
+        //
     }
 }
