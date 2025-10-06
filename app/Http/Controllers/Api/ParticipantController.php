@@ -33,11 +33,7 @@ class ParticipantController extends Controller
 
 
         $participant = Participant::create($validated);
-            qrDirectoryExists(public_path('qr'));
 
-        if (!file_exists(public_path() . "/qr/{$participant->auth_key}.jpg")) {
-            storeImageFromUrl("https://api.qrserver.com/v1/create-qr-code/?data={$participant->auth_key}&size=300x300&ecc=L&bgcolor=fff&color=000000&margin=15", "/qr/{$participant->auth_key}.jpg");
-        }
         return response()->json([
             'message' => 'Participant stored successfully!',
             'data'    => $participant,
